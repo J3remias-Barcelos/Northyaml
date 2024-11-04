@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+  namespace: global
+spec:
+  type: LoadBalancer  # Tipo LoadBalancer para expor o serviço externamente
+  ports:
+    - port: 8080       # Porta que será exposta externamente
+      targetPort: 8080 # Porta do contêiner
+  selector:
+    app: backend       # Seleciona os pods do backend
+
