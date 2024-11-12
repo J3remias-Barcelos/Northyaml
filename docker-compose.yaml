@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: mysql_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: northpassword
+      MYSQL_DATABASE: north-db
+      MYSQL_USER: north-user
+      MYSQL_PASSWORD: northpassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  backend1:
+    image: j3remias/north-backend:v2  # Utilizando a imagem do Docker Hub
+    container_name: backend1
+    restart: always
+    ports:
+      - "8081:80"  # Mapeia a porta 8081 da máquina para a 80 do container
+
+  backend2:
+    image: j3remias/north-backend:v2  # Utilizando a imagem do Docker Hub
+    container_name: backend2
+    restart: always
+    ports:
+      - "8082:80"  # Mapeia a porta 8082 da máquina para a 80 do container
+
+volumes:
+  mysql_data:
