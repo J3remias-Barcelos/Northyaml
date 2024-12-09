@@ -13,6 +13,7 @@ spec:
       labels:
         app: backend
     spec:
+      hostNetwork: true
       containers:
       - name: backend
         image: j3remias/north-backend:v2
@@ -28,10 +29,9 @@ spec:
           valueFrom:
             secretKeyRef:
               name: mysql-secret
-              key: MYSQL_USER  # Atualizado para corresponder ao Secret
+              key: MYSQL_USER
         - name: SPRING_DATASOURCE_PASSWORD
           valueFrom:
             secretKeyRef:
               name: mysql-secret
-              key: MYSQL_PASSWORD  # Atualizado para corresponder ao Secret
-
+              key: MYSQL_PASSWORD

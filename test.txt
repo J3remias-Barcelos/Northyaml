@@ -1,0 +1,5 @@
+CREATE DATABASE northink;
+CREATE USER 'root'@'localhost' IDENTIFIED BY 'pasroot';
+GRANT ALL PRIVILEGES ON northink.* TO 'root'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;

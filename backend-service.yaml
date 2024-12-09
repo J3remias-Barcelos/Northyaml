@@ -4,10 +4,9 @@ metadata:
   name: backend-service
   namespace: global
 spec:
-  type: LoadBalancer  # Tipo LoadBalancer para expor o serviço externamente
+  type: LoadBalancer
   ports:
-    - port: 8080       # Porta que será exposta externamente
-      targetPort: 8080 # Porta do contêiner
+  - port: 8080
+    targetPort: 8080
   selector:
-    app: backend       # Seleciona os pods do backend
-
+    app: backend
